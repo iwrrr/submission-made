@@ -31,7 +31,7 @@ class TvShowRepositoryImpl @Inject constructor(
                 data == null || data.isEmpty()
 
             override fun createCall(): Flow<ApiResponse<List<TvShowResponse>>> =
-                remoteDataSource.getTvOnTheAir()
+                remoteDataSource.getTvShows()
 
             override suspend fun saveCallResult(data: List<TvShowResponse>) {
                 val tvShowList = DataMapper.mapTvShowResponsesToEntities(data)

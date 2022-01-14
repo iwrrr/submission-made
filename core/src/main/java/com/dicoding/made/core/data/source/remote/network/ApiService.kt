@@ -8,33 +8,13 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("movie/now_playing")
-    suspend fun getNowPlayingMovies(
+    @GET("movie")
+    suspend fun getMovies(
         @Query("api_key") apiKey: String
     ): Wrapper<MovieResponse>
 
-    @GET("movie/popular")
-    suspend fun getPopularMovies(
-        @Query("api_key") apiKey: String
-    ): Wrapper<MovieResponse>
-
-    @GET("movie/upcoming")
-    suspend fun getUpComingMovies(
-        @Query("api_key") apiKey: String
-    ): Wrapper<MovieResponse>
-
-    @GET("tv/airing_today")
-    suspend fun getTvAiringToday(
-        @Query("api_key") apiKey: String
-    ): Wrapper<TvShowResponse>
-
-    @GET("tv/on_the_air")
-    suspend fun getTvOnTheAir(
-        @Query("api_key") apiKey: String
-    ): Wrapper<TvShowResponse>
-
-    @GET("tv/popular")
-    suspend fun getTvPopular(
+    @GET("tv")
+    suspend fun getTvShows(
         @Query("api_key") apiKey: String
     ): Wrapper<TvShowResponse>
 }

@@ -31,7 +31,7 @@ class MovieRepositoryImpl @Inject constructor(
                 data == null || data.isEmpty()
 
             override fun createCall(): Flow<ApiResponse<List<MovieResponse>>> =
-                remoteDataSource.getNowPlayingMovies()
+                remoteDataSource.getMovies()
 
             override suspend fun saveCallResult(data: List<MovieResponse>) {
                 val movieList = DataMapper.mapMovieResponsesToEntities(data)
