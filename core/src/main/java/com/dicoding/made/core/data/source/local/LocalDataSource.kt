@@ -21,7 +21,7 @@ class LocalDataSource @Inject constructor(
     suspend fun insertMovies(movies: List<MovieEntity>) =
         movieDao.insertMovies(movies)
 
-    fun updateFavoriteMovie(movie: MovieEntity) =
+    fun setFavoriteMovie(movie: MovieEntity) =
         movieDao.updateFavoriteMovie(movie)
 
     fun getAllTvShows(): Flow<List<TvShowEntity>> =
@@ -33,6 +33,6 @@ class LocalDataSource @Inject constructor(
     suspend fun insertTvShows(tvShows: List<TvShowEntity>) =
         movieDao.insertTvShows(tvShows)
 
-    fun updateFavoriteTvShow(tvShow: TvShowEntity) =
+    fun setFavoriteTvShow(tvShow: TvShowEntity) =
         movieDao.updateFavoriteTvShow(tvShow)
 }
