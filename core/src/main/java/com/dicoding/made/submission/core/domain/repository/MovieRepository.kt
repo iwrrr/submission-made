@@ -10,7 +10,7 @@ interface MovieRepository {
 
     fun getMovies(): Flow<Resource<List<Movie>>>
 
-    fun getFavoriteMovie(): Flow<List<Movie>>
+    fun getFavoriteMovies(): Flow<Resource<List<Movie>>>
 
     fun setFavoriteMovie(movie: Movie, state: Boolean)
 }

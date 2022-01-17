@@ -16,8 +16,8 @@ class TvShowInteractor @Inject constructor(
     override fun getTvShows(): Flow<Resource<List<TvShow>>> =
         tvShowRepository.getTvShows()
 
-    override fun getFavoriteTvShow(): Flow<List<TvShow>> =
-        tvShowRepository.getFavoriteTvShow()
+    override fun getFavoriteTvShows(): Flow<Resource<List<TvShow>>> =
+        tvShowRepository.getFavoriteTvShows()
 
     override fun setFavoriteTvShow(tvShow: TvShow, state: Boolean) =
         tvShowRepository.setFavoriteTvShow(tvShow, state)

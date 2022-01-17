@@ -60,9 +60,9 @@ class MovieRepositoryImpl @Inject constructor(
             }
         }.asFlow()
 
-    override fun getFavoriteMovie(): Flow<List<Movie>> {
-        return localDataSource.getFavoriteMovies().map { DataMapper.mapMovieEntitiesToDomain(it) }
-    }
+    override fun getFavoriteMovies(): Flow<Resource<List<Movie>>> =
+        localDataSource.getFavoriteMovies()
+            .map { Resource.Success(DataMapper.mapMovieEntitiesToDomain(it)) }
 
     override fun setFavoriteMovie(movie: Movie, state: Boolean) {
         val movieEntity = DataMapper.mapMovieDomainToEntity(movie)

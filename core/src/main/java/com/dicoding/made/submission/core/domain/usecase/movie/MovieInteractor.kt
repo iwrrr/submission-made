@@ -16,8 +16,8 @@ class MovieInteractor @Inject constructor(
     override fun getMovies(): Flow<Resource<List<Movie>>> =
         movieRepository.getMovies()
 
-    override fun getFavoriteMovie(): Flow<List<Movie>> =
-        movieRepository.getFavoriteMovie()
+    override fun getFavoriteMovies(): Flow<Resource<List<Movie>>> =
+        movieRepository.getFavoriteMovies()
 
     override fun setFavoriteMovie(movie: Movie, state: Boolean) =
         movieRepository.setFavoriteMovie(movie, state)

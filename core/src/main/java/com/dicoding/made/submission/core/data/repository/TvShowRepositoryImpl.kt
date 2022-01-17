@@ -63,10 +63,9 @@ class TvShowRepositoryImpl @Inject constructor(
             }
         }.asFlow()
 
-    override fun getFavoriteTvShow(): Flow<List<TvShow>> {
-        return localDataSource.getFavoriteTvShows()
-            .map { DataMapper.mapTvShowEntitiesToDomain(it) }
-    }
+    override fun getFavoriteTvShows(): Flow<Resource<List<TvShow>>> =
+        localDataSource.getFavoriteTvShows()
+            .map { Resource.Success(DataMapper.mapTvShowEntitiesToDomain(it)) }
 
     override fun setFavoriteTvShow(tvShow: TvShow, state: Boolean) {
         val tvShowEntity = DataMapper.mapTvShowDomainToEntity(tvShow)

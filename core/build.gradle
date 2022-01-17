@@ -43,8 +43,8 @@ android {
 }
 
 dependencies {
-    implementation project(':commons')
-    implementation project(':resources')
+    implementation project(":commons")
+    implementation project(":resources")
 
     // Room
     api "androidx.room:room-runtime:$room_version"

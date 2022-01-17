@@ -44,8 +44,8 @@ class TvShowFragment : Fragment(R.layout.fragment_tv_show) {
         setTvShows()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
 

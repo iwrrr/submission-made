@@ -10,7 +10,7 @@ interface TvShowUseCase {
 
     fun getTvShows(): Flow<Resource<List<TvShow>>>
 
-    fun getFavoriteTvShow(): Flow<List<TvShow>>
+    fun getFavoriteTvShows(): Flow<Resource<List<TvShow>>>
 
     fun setFavoriteTvShow(tvShow: TvShow, state: Boolean)
 }
