@@ -19,16 +19,19 @@ class RemoteDataSource @Inject constructor(
 
     private val apiKey = "36bab2577e67680bb7e1c554af4ac423"
 
-    fun searchMovies(query: String): Flow<List<MovieResponse>> {
+    fun searchMovies(query: String): Flow<NetworkState<List<MovieResponse>>> {
         return flow {
             try {
                 val response = apiService.searchMovies(apiKey, query)
                 val data = response.data
 
                 if (data.isNotEmpty()) {
-                    emit(data)
+                    emit(NetworkState.Success(data))
+                } else {
+                    emit(NetworkState.Empty)
                 }
             } catch (e: Exception) {
+                emit(NetworkState.Error(e.message.toString()))
                 Log.e("RemoteDataSource", e.message.toString())
             }
         }.flowOn(Dispatchers.IO)
@@ -52,16 +55,19 @@ class RemoteDataSource @Inject constructor(
         }.flowOn(Dispatchers.IO)
     }
 
-    fun searchTvShows(query: String): Flow<List<TvShowResponse>> {
+    fun searchTvShows(query: String): Flow<NetworkState<List<TvShowResponse>>> {
         return flow {
             try {
                 val response = apiService.searchTvShows(apiKey, query)
                 val data = response.data
 
                 if (data.isNotEmpty()) {
-                    emit(data)
+                    emit(NetworkState.Success(data))
+                } else {
+                    emit(NetworkState.Empty)
                 }
             } catch (e: Exception) {
+                emit(NetworkState.Error(e.message.toString()))
                 Log.e("RemoteDataSource", e.message.toString())
             }
         }.flowOn(Dispatchers.IO)

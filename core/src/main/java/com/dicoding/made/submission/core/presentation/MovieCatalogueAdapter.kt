@@ -14,7 +14,7 @@ import com.dicoding.made.submission.core.domain.model.Movie
 import com.dicoding.made.submission.core.domain.model.TvShow
 
 @Suppress("UNCHECKED_CAST")
-class MovieAdapter<T>(
+class MovieCatalogueAdapter<T>(
     private val onClick: (T) -> Unit,
     private val context: Context
 ) : BaseGenericAdapter<CommonType>() {
@@ -36,10 +36,9 @@ class MovieAdapter<T>(
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (currentList[position] is Movie) {
-            movieType
-        } else {
-            tvShowType
+        return when (currentList[position]) {
+            is Movie -> movieType
+            else -> tvShowType
         }
     }
 

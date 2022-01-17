@@ -22,9 +22,24 @@ class MovieRepositoryImpl @Inject constructor(
     private val appExecutors: AppExecutors
 ) : MovieRepository {
 
-    override fun searchMovies(query: String): Flow<List<Movie>> {
-        return remoteDataSource.searchMovies(query).map { DataMapper.mapMovieResponsesToDomain(it) }
-    }
+    override fun searchMovies(query: String): Flow<Resource<List<Movie>>> =
+        object : NetworkBoundResource<List<Movie>, List<MovieResponse>>() {
+            override fun loadFromDB(): Flow<List<Movie>> =
+                localDataSource.searchMovies(query).map {
+                    DataMapper.mapMovieEntitiesToDomain(it)
+                }
+
+            override fun shouldFetch(data: List<Movie>?): Boolean =
+                data == null || data.isEmpty()
+
+            override fun createCall(): Flow<NetworkState<List<MovieResponse>>> =
+                remoteDataSource.searchMovies(query)
+
+            override suspend fun saveCallResult(data: List<MovieResponse>) {
+                val movieList = DataMapper.mapMovieResponsesToEntities(data)
+                localDataSource.insertMovies(movieList)
+            }
+        }.asFlow()
 
     override fun getMovies(): Flow<Resource<List<Movie>>> =
         object : NetworkBoundResource<List<Movie>, List<MovieResponse>>() {

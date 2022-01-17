@@ -10,7 +10,10 @@ class TvShowInteractor @Inject constructor(
     private val tvShowRepository: TvShowRepository
 ) : TvShowUseCase {
 
-    override fun getAllTourism(): Flow<Resource<List<TvShow>>> =
+    override fun searchTvShows(query: String): Flow<Resource<List<TvShow>>> =
+        tvShowRepository.searchTvShows(query)
+
+    override fun getTvShows(): Flow<Resource<List<TvShow>>> =
         tvShowRepository.getTvShows()
 
     override fun getFavoriteTvShow(): Flow<List<TvShow>> =

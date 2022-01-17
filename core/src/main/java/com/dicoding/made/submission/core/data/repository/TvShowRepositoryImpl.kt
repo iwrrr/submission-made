@@ -22,10 +22,24 @@ class TvShowRepositoryImpl @Inject constructor(
     private val appExecutors: AppExecutors
 ) : TvShowRepository {
 
-    override fun searchTvShows(query: String): Flow<List<TvShow>> {
-        return remoteDataSource.searchTvShows(query)
-            .map { DataMapper.mapTvShowResponsesToDomain(it) }
-    }
+    override fun searchTvShows(query: String): Flow<Resource<List<TvShow>>> =
+        object : NetworkBoundResource<List<TvShow>, List<TvShowResponse>>() {
+            override fun loadFromDB(): Flow<List<TvShow>> =
+                localDataSource.searchTvShows(query).map {
+                    DataMapper.mapTvShowEntitiesToDomain(it)
+                }
+
+            override fun shouldFetch(data: List<TvShow>?): Boolean =
+                data == null || data.isEmpty()
+
+            override fun createCall(): Flow<NetworkState<List<TvShowResponse>>> =
+                remoteDataSource.searchTvShows(query)
+
+            override suspend fun saveCallResult(data: List<TvShowResponse>) {
+                val movieList = DataMapper.mapTvShowResponsesToEntities(data)
+                localDataSource.insertTvShows(movieList)
+            }
+        }.asFlow()
 
     override fun getTvShows(): Flow<Resource<List<TvShow>>> =
         object : NetworkBoundResource<List<TvShow>, List<TvShowResponse>>() {

@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface TvShowRepository {
 
-    fun searchTvShows(query: String): Flow<List<TvShow>>
+    fun searchTvShows(query: String): Flow<Resource<List<TvShow>>>
 
     fun getTvShows(): Flow<Resource<List<TvShow>>>
 

@@ -1,4 +1,4 @@
-package com.dicoding.made.submission.core.presentation.detail
+package com.dicoding.made.submission.core.presentation.detail.tvshow
 
 import android.os.Bundle
 import android.view.animation.Animation
@@ -10,24 +10,24 @@ import com.dicoding.made.submission.commons.ui.extensions.loadImage
 import com.dicoding.made.submission.commons.ui.extensions.toDate
 import com.dicoding.made.submission.core.R
 import com.dicoding.made.submission.core.databinding.ActivityDetailBinding
-import com.dicoding.made.submission.core.domain.model.Movie
+import com.dicoding.made.submission.core.domain.model.TvShow
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DetailMovieActivity : AppCompatActivity() {
+class DetailTvShowActivity : AppCompatActivity() {
 
     private var _binding: ActivityDetailBinding? = null
     private val binding get() = _binding
 
-    private val viewModel: DetailMovieViewModel by viewModels()
+    private val viewModel: DetailTvShowViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
-        val movie = intent.getParcelableExtra<Movie>(EXTRA_MOVIE)
-        movie?.let {
+        val tvShow = intent.getParcelableExtra<TvShow>(EXTRA_TVSHOW)
+        tvShow?.let {
             populateData(it)
         }
 
@@ -41,21 +41,28 @@ class DetailMovieActivity : AppCompatActivity() {
         _binding = null
     }
 
-    private fun populateData(movie: Movie) {
+    private fun populateData(tvShow: TvShow?) {
         binding?.apply {
-            ivBackdrop.loadImage(movie.backdropPath)
-            ivPoster.loadImage(movie.posterPath)
-            tvReleaseDate.text = movie.releaseDate?.toDate()
-            tvTitle.text = movie.title
-            tvPopularity.text = getString(R.string.popularity, movie.popularity.toString())
-            tvVoteCount.text = getString(R.string.vote_count, movie.voteCount.toString())
-            tvOverview.text = movie.overview
+            tvShow?.let {
+                ivBackdrop.loadImage(tvShow.backdropPath)
+                ivPoster.loadImage(tvShow.posterPath)
+                tvTitle.text = tvShow.name
+                tvPopularity.text = getString(R.string.popularity, tvShow.popularity.toString())
+                tvVoteCount.text = getString(R.string.vote_count, tvShow.voteCount.toString())
+                tvOverview.text = tvShow.overview
+                tvReleaseDate.text =
+                    if (tvShow.firstAirDate != getString(R.string._null)) {
+                        tvShow.firstAirDate?.toDate()
+                    } else {
+                        getString(R.string._dash)
+                    }
+            }
         }
 
-        setFavorite(movie)
+        tvShow?.let { setFavorite(it) }
     }
 
-    private fun setFavorite(movie: Movie) {
+    private fun setFavorite(tvShow: TvShow) {
         val scaleAnimation = ScaleAnimation(
             0.7f,
             1.0f,
@@ -71,16 +78,16 @@ class DetailMovieActivity : AppCompatActivity() {
         scaleAnimation.duration = 500
         scaleAnimation.interpolator = bounceInterpolator
 
-        var isFavorite = movie.isFavorite
+        var isFavorite = tvShow.isFavorite
 
         binding?.apply {
             toggleFavorite.setOnClickListener {
                 it.startAnimation(scaleAnimation)
                 isFavorite = !isFavorite
                 if (isFavorite) {
-                    viewModel.setFavoriteMovie(movie, isFavorite)
+                    viewModel.setFavoriteTvShow(tvShow, isFavorite)
                 } else {
-                    viewModel.setFavoriteMovie(movie, isFavorite)
+                    viewModel.setFavoriteTvShow(tvShow, isFavorite)
                 }
             }
 
@@ -89,6 +96,6 @@ class DetailMovieActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val EXTRA_MOVIE = "extra_data"
+        const val EXTRA_TVSHOW = "extra_data"
     }
 }

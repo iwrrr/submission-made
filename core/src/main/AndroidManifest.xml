@@ -4,7 +4,10 @@
 
     <application>
         <activity
-            android:name=".presentation.detail.DetailMovieActivity"
+            android:name=".presentation.detail.tvshow.DetailTvShowActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.detail.movie.DetailMovieActivity"
             android:exported="false" />
     </application>
 

@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface MovieUseCase {
 
-    fun searchMovies(query: String): Flow<List<Movie>>
+    fun searchMovies(query: String): Flow<Resource<List<Movie>>>
 
     fun getMovies(): Flow<Resource<List<Movie>>>
 

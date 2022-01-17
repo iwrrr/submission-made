@@ -1,4 +1,4 @@
-package com.dicoding.made.submission.core.presentation.detail
+package com.dicoding.made.submission.core.presentation.detail.movie
 
 import androidx.lifecycle.ViewModel
 import com.dicoding.made.submission.core.domain.model.Movie

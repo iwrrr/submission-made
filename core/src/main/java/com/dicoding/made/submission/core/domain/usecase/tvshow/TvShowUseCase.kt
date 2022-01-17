@@ -6,7 +6,9 @@ import kotlinx.coroutines.flow.Flow
 
 interface TvShowUseCase {
 
-    fun getAllTourism(): Flow<Resource<List<TvShow>>>
+    fun searchTvShows(query: String): Flow<Resource<List<TvShow>>>
+
+    fun getTvShows(): Flow<Resource<List<TvShow>>>
 
     fun getFavoriteTvShow(): Flow<List<TvShow>>
 

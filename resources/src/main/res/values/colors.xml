@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="colorIconSearch">#6F6F96</color>
+
+    <color name="colorPlaceholder">#6FB6B6B6</color>
 </resources>

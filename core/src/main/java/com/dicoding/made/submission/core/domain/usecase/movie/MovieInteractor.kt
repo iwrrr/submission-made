@@ -10,7 +10,7 @@ class MovieInteractor @Inject constructor(
     private val movieRepository: MovieRepository
 ) : MovieUseCase {
 
-    override fun searchMovies(query: String): Flow<List<Movie>> =
+    override fun searchMovies(query: String): Flow<Resource<List<Movie>>> =
         movieRepository.searchMovies(query)
 
     override fun getMovies(): Flow<Resource<List<Movie>>> =

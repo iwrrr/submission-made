@@ -10,4 +10,9 @@
         android:name="com.dicoding.made.submission.core.presentation.movie.MovieFragment"
         android:label="@string/title_nav_movie"
         tools:layout="@layout/fragment_movie" />
+    <fragment
+        android:id="@+id/navigation_tv_show"
+        android:name="com.dicoding.made.submission.core.presentation.tvshow.TvShowFragment"
+        android:label="TvShowFragment"
+        tools:layout="@layout/fragment_tv_show" />
 </navigation>

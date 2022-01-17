@@ -9,30 +9,6 @@ import com.dicoding.made.submission.core.domain.model.TvShow
 
 object DataMapper {
 
-    fun mapMovieResponsesToDomain(input: List<MovieResponse>): List<Movie> {
-        val movieList = ArrayList<Movie>()
-        input.map {
-            val movie = Movie(
-                id = it.id,
-                title = it.title,
-                originalTitle = it.originalTitle,
-                originalLanguage = it.originalLanguage,
-                adult = it.adult,
-                posterPath = it.posterPath,
-                backdropPath = it.backdropPath,
-                releaseDate = it.releaseDate,
-                overview = it.overview,
-                popularity = it.popularity,
-                video = it.video,
-                voteAverage = it.voteAverage,
-                voteCount = it.voteCount,
-                isFavorite = false
-            )
-            movieList.add(movie)
-        }
-        return movieList
-    }
-
     fun mapMovieResponsesToEntities(input: List<MovieResponse>): List<MovieEntity> {
         val movieList = ArrayList<MovieEntity>()
         input.map {

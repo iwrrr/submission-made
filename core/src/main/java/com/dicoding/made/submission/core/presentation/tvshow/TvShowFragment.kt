@@ -1,4 +1,4 @@
-package com.dicoding.made.submission.core.presentation.movie
+package com.dicoding.made.submission.core.presentation.tvshow
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,10 +12,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.dicoding.made.submission.commons.other.CommonType
 import com.dicoding.made.submission.commons.other.Resource
 import com.dicoding.made.submission.core.R
-import com.dicoding.made.submission.core.databinding.FragmentMovieBinding
-import com.dicoding.made.submission.core.domain.model.Movie
+import com.dicoding.made.submission.core.databinding.FragmentTvShowBinding
+import com.dicoding.made.submission.core.domain.model.TvShow
 import com.dicoding.made.submission.core.presentation.MovieCatalogueAdapter
-import com.dicoding.made.submission.core.presentation.detail.movie.DetailMovieActivity
+import com.dicoding.made.submission.core.presentation.detail.tvshow.DetailTvShowActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -24,24 +24,24 @@ import kotlinx.coroutines.launch
 @FlowPreview
 @ExperimentalCoroutinesApi
 @AndroidEntryPoint
-class MovieFragment : Fragment(R.layout.fragment_movie) {
+class TvShowFragment : Fragment(R.layout.fragment_tv_show) {
 
-    private var _binding: FragmentMovieBinding? = null
+    private var _binding: FragmentTvShowBinding? = null
     private val binding get() = _binding
 
-    private val viewModel: MovieViewModel by viewModels()
+    private val viewModel: TvShowViewModel by viewModels()
 
-    private val movieAdapter: MovieCatalogueAdapter<Movie> by lazy {
-        MovieCatalogueAdapter(::onMovieClicked, requireContext())
+    private val tvShowAdapter: MovieCatalogueAdapter<TvShow> by lazy {
+        MovieCatalogueAdapter(::onTvShowClicked, requireContext())
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentMovieBinding.bind(view)
+        _binding = FragmentTvShowBinding.bind(view)
 
         setupSearchFlow()
 
-        setMovies()
+        setTvShows()
     }
 
     override fun onDestroy() {
@@ -49,13 +49,13 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
         _binding = null
     }
 
-    private fun setMovies() {
-        binding?.rvMovies?.apply {
+    private fun setTvShows() {
+        binding?.rvTvShows?.apply {
             layoutManager = GridLayoutManager(context, 2)
-            adapter = movieAdapter
+            adapter = tvShowAdapter
         }
 
-        viewModel.movies.observe(viewLifecycleOwner, { resource ->
+        viewModel.tvShows.observe(viewLifecycleOwner, { resource ->
             if (resource != null) {
                 when (resource) {
                     is Resource.Loading -> {
@@ -63,7 +63,7 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
                     }
                     is Resource.Success -> {
                         binding?.progressBar?.isVisible = false
-                        movieAdapter.submitList(resource.data)
+                        tvShowAdapter.submitList(resource.data)
                     }
                     is Resource.Error -> {
                         binding?.progressBar?.isVisible = false
@@ -73,9 +73,9 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
         })
     }
 
-    private fun onMovieClicked(movie: Movie) {
-        Intent(requireContext(), DetailMovieActivity::class.java).also { intent ->
-            intent.putExtra(DetailMovieActivity.EXTRA_MOVIE, movie)
+    private fun onTvShowClicked(tvShow: TvShow) {
+        Intent(requireContext(), DetailTvShowActivity::class.java).also { intent ->
+            intent.putExtra(DetailTvShowActivity.EXTRA_TVSHOW, tvShow)
             startActivity(intent)
         }
     }
@@ -96,10 +96,10 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
             })
 
             viewModel.searchResult.observe(viewLifecycleOwner, { resource ->
-                val movies = arrayListOf<Movie>()
+                val tvShows = arrayListOf<TvShow>()
 
                 resource.data?.map {
-                    movies.add(it)
+                    tvShows.add(it)
                 }
 
                 if (resource != null) {
@@ -109,7 +109,7 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
                         }
                         is Resource.Success -> {
                             binding?.progressBar?.isVisible = false
-                            movieAdapter.submitList(movies as List<CommonType>)
+                            tvShowAdapter.submitList(tvShows as List<CommonType>)
                         }
                         is Resource.Error -> {
                             binding?.progressBar?.isVisible = false
