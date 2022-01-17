@@ -1,7 +1,7 @@
 package com.dicoding.made.submission.core.di
 
+import com.dicoding.made.submission.commons.ui.utils.Constants.BASE_URL
 import com.dicoding.made.submission.core.BuildConfig
-import com.dicoding.made.submission.core.common.Constants.BASE_URL
 import com.dicoding.made.submission.core.data.source.remote.network.ApiService
 import dagger.Module
 import dagger.Provides

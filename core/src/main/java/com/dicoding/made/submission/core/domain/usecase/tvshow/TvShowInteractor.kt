@@ -1,6 +1,6 @@
 package com.dicoding.made.submission.core.domain.usecase.tvshow
 
-import com.dicoding.made.submission.core.common.Resource
+import com.dicoding.made.submission.commons.other.Resource
 import com.dicoding.made.submission.core.domain.model.TvShow
 import com.dicoding.made.submission.core.domain.repository.TvShowRepository
 import kotlinx.coroutines.flow.Flow
@@ -11,7 +11,7 @@ class TvShowInteractor @Inject constructor(
 ) : TvShowUseCase {
 
     override fun getAllTourism(): Flow<Resource<List<TvShow>>> =
-        tvShowRepository.getAllTvShows()
+        tvShowRepository.getTvShows()
 
     override fun getFavoriteTvShow(): Flow<List<TvShow>> =
         tvShowRepository.getFavoriteTvShow()

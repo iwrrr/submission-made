@@ -1,0 +1,18 @@
+<resources>
+    <string name="title_favorite">Favorite</string>
+    <string name="title_nav_movie">Movie</string>
+    <string name="title_nav_tv_show">Tv Show</string>
+    <string name="title_nav_favorite">Favorite</string>
+    <string name="title_nav_setting">Setting</string>
+
+    <string name="query_hint">Search your favorite movie</string>
+
+    <string name="_dash">-</string>
+    <string name="_null" />
+
+    <string name="overview">Overview</string>
+    <string name="popularity">Popularity\t\t: %1$s</string>
+    <string name="vote_count">Vote Count\t: %1$s</string>
+
+    <string name="btn_back">Back</string>
+</resources>

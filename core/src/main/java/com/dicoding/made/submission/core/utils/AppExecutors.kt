@@ -1,4 +1,4 @@
-package com.dicoding.made.submission.core.common
+package com.dicoding.made.submission.core.utils
 
 import android.os.Handler
 import android.os.Looper

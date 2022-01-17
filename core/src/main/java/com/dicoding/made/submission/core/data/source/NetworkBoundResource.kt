@@ -1,7 +1,7 @@
 package com.dicoding.made.submission.core.data.source
 
-import com.dicoding.made.submission.core.common.Resource
-import com.dicoding.made.submission.core.data.source.remote.network.ApiResponse
+import com.dicoding.made.submission.commons.other.NetworkState
+import com.dicoding.made.submission.commons.other.Resource
 import kotlinx.coroutines.flow.*
 
 abstract class NetworkBoundResource<ResultType, RequestType> {
@@ -16,14 +16,14 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
             emit(Resource.Loading())
 
             when (apiResponse) {
-                is ApiResponse.Success -> {
+                is NetworkState.Success -> {
                     saveCallResult(apiResponse.data)
                     emitAll(loadFromDB().map { Resource.Success(it) })
                 }
-                is ApiResponse.Empty -> {
+                is NetworkState.Empty -> {
                     emitAll(loadFromDB().map { Resource.Success(it) })
                 }
-                is ApiResponse.Error -> {
+                is NetworkState.Error -> {
                     onFetchFailed()
                     emit(Resource.Error(apiResponse.errorMessage))
                 }
@@ -39,7 +39,7 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
 
     protected abstract fun shouldFetch(data: ResultType?): Boolean
 
-    protected abstract fun createCall(): Flow<ApiResponse<RequestType>>
+    protected abstract fun createCall(): Flow<NetworkState<RequestType>>
 
     protected abstract suspend fun saveCallResult(data: RequestType)
 

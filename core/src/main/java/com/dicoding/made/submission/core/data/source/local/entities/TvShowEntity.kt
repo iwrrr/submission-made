@@ -17,34 +17,34 @@ data class TvShowEntity(
     var id: Int,
 
     @ColumnInfo(name = "name")
-    var name: String,
+    var name: String? = null,
 
     @ColumnInfo(name = "original_name")
-    var originalName: String,
+    var originalName: String? = null,
 
     @ColumnInfo(name = "original_language")
-    var originalLanguage: String,
+    var originalLanguage: String? = null,
 
     @ColumnInfo(name = "poster_path")
-    var posterPath: String,
+    var posterPath: String? = null,
 
     @ColumnInfo(name = "backdrop_path")
-    var backdropPath: String,
+    var backdropPath: String? = null,
 
     @ColumnInfo(name = "first_air_date")
-    var firstAirDate: String,
+    var firstAirDate: String? = null,
 
     @ColumnInfo(name = "overview")
-    var overview: String,
+    var overview: String? = null,
 
     @ColumnInfo(name = "popularity")
-    var popularity: Double,
+    var popularity: Double = 0.0,
 
     @ColumnInfo(name = "vote_average")
-    var voteAverage: Double,
+    var voteAverage: Double = 0.0,
 
     @ColumnInfo(name = "vote_count")
-    var voteCount: Int,
+    var voteCount: Int = 0,
 
     @ColumnInfo(name = "is_favorite")
     var isFavorite: Boolean

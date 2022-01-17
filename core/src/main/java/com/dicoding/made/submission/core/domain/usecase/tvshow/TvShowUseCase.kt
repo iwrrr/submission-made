@@ -1,6 +1,6 @@
 package com.dicoding.made.submission.core.domain.usecase.tvshow
 
-import com.dicoding.made.submission.core.common.Resource
+import com.dicoding.made.submission.commons.other.Resource
 import com.dicoding.made.submission.core.domain.model.TvShow
 import kotlinx.coroutines.flow.Flow
 

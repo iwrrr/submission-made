@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.dicoding.made.submission.core">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dicoding.made.submission.core">
+
+    <application>
+        <activity
+            android:name=".presentation.detail.DetailMovieActivity"
+            android:exported="false" />
+    </application>
 
 </manifest>
