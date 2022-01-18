@@ -7,7 +7,7 @@
         <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/app/src/main/res/drawable/ic_favorite.xml" value="0.11944444444444445" />
         <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/app/src/main/res/drawable/ic_favorite_border.xml" value="0.11944444444444445" />
         <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/app/src/main/res/drawable/ic_filter.xml" value="0.11944444444444445" />
-        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/app/src/main/res/layout/fragment_movie.xml" value="0.25" />
         <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/app/src/main/res/menu/nav_menu.xml" value="0.5" />
         <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.11388888888888889" />
@@ -28,6 +28,8 @@
         <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resource/src/main/res/menu/nav_menu.xml" value="0.1" />
         <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resource/src/main/res/mipmap/ic_launcher_round.xml" value="0.11388888888888889" />
         <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resources/src/main/res/drawable/bg_circle.xml" value="0.35572916666666665" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resources/src/main/res/drawable/bg_rounded.xml" value="0.23981481481481481" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resources/src/main/res/drawable/bottom_navigation_selector.xml" value="0.1361111111111111" />
         <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resources/src/main/res/drawable/filter.xml" value="0.35572916666666665" />
         <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resources/src/main/res/drawable/ic_broken_image.xml" value="0.14074074074074075" />
         <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resources/src/main/res/drawable/ic_error.xml" value="0.14074074074074075" />

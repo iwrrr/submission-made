@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.made.submission.commons.ui.extensions.loadImage
 import com.dicoding.made.submission.commons.ui.extensions.toDate
+import com.dicoding.made.submission.commons.ui.extensions.toRate
 import com.dicoding.made.submission.core.R
 import com.dicoding.made.submission.core.databinding.ActivityDetailBinding
 import com.dicoding.made.submission.core.domain.model.Movie
@@ -45,6 +46,7 @@ class DetailMovieActivity : AppCompatActivity() {
         binding?.apply {
             ivBackdrop.loadImage(movie.backdropPath)
             ivPoster.loadImage(movie.posterPath)
+            tvRate.text = movie.voteAverage.toRate()
             tvTitle.text = movie.title
             tvPopularity.text = getString(R.string.popularity, movie.popularity.toString())
             tvVoteCount.text = getString(R.string.vote_count, movie.voteCount.toString())

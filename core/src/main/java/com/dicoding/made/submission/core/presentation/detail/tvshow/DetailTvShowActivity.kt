@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.made.submission.commons.ui.extensions.loadImage
 import com.dicoding.made.submission.commons.ui.extensions.toDate
+import com.dicoding.made.submission.commons.ui.extensions.toRate
 import com.dicoding.made.submission.core.R
 import com.dicoding.made.submission.core.databinding.ActivityDetailBinding
 import com.dicoding.made.submission.core.domain.model.TvShow
@@ -46,6 +47,7 @@ class DetailTvShowActivity : AppCompatActivity() {
             tvShow?.let {
                 ivBackdrop.loadImage(tvShow.backdropPath)
                 ivPoster.loadImage(tvShow.posterPath)
+                tvRate.text = tvShow.voteAverage.toRate()
                 tvTitle.text = tvShow.name
                 tvPopularity.text = getString(R.string.popularity, tvShow.popularity.toString())
                 tvVoteCount.text = getString(R.string.vote_count, tvShow.voteCount.toString())

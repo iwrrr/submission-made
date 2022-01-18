@@ -16,7 +16,7 @@
     </style>
 
     <style name="Typography.White" parent="Typography">
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">@color/colorText</item>
     </style>
 
     <style name="Typography.White.10" parent="Typography.White">
@@ -53,7 +53,8 @@
 
     <style name="Search">
         <item name="android:textSize">14sp</item>
-        <item name="android:maxLength">50</item>
+        <item name="android:textColorHint">@color/colorText</item>
+        <item name="android:maxLength">30</item>
     </style>
 
     <style name="TabTextAppearance" parent="Typography">
