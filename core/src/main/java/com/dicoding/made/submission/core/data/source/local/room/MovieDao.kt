@@ -1,6 +1,7 @@
 package com.dicoding.made.submission.core.data.source.local.room
 
 import androidx.room.*
+import androidx.sqlite.db.SupportSQLiteQuery
 import com.dicoding.made.submission.core.data.source.local.entities.MovieEntity
 import com.dicoding.made.submission.core.data.source.local.entities.TvShowEntity
 import kotlinx.coroutines.flow.Flow
@@ -14,11 +15,14 @@ interface MovieDao {
     @Query("SELECT * FROM movies")
     fun getMovies(): Flow<List<MovieEntity>>
 
-    @Query("SELECT * FROM movies where is_favorite = 1")
-    fun getFavoriteMovies(): Flow<List<MovieEntity>>
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovies(movies: List<MovieEntity>)
+
+    @Query("DELETE FROM movies")
+    suspend fun deleteMovies()
+
+    @RawQuery(observedEntities = [MovieEntity::class])
+    fun getFavoriteMovies(query: SupportSQLiteQuery): Flow<List<MovieEntity>>
 
     @Update
     fun updateFavoriteMovie(movie: MovieEntity)
@@ -29,11 +33,14 @@ interface MovieDao {
     @Query("SELECT * FROM tv_shows")
     fun getTvShows(): Flow<List<TvShowEntity>>
 
-    @Query("SELECT * FROM tv_shows where is_favorite = 1")
-    fun getFavoriteTvShows(): Flow<List<TvShowEntity>>
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTvShows(tvShows: List<TvShowEntity>)
+
+    @Query("DELETE FROM tv_shows")
+    suspend fun deleteTvShows()
+
+    @RawQuery(observedEntities = [TvShowEntity::class])
+    fun getFavoriteTvShows(query: SupportSQLiteQuery): Flow<List<TvShowEntity>>
 
     @Update
     fun updateFavoriteTvShow(tvShow: TvShowEntity)

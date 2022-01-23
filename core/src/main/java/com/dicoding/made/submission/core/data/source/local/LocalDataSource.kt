@@ -3,6 +3,8 @@ package com.dicoding.made.submission.core.data.source.local
 import com.dicoding.made.submission.core.data.source.local.entities.MovieEntity
 import com.dicoding.made.submission.core.data.source.local.entities.TvShowEntity
 import com.dicoding.made.submission.core.data.source.local.room.MovieDao
+import com.dicoding.made.submission.core.utils.SortType
+import com.dicoding.made.submission.core.utils.SortUtils
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -21,8 +23,12 @@ class LocalDataSource @Inject constructor(
     suspend fun insertMovies(movies: List<MovieEntity>) =
         movieDao.insertMovies(movies)
 
-    fun getFavoriteMovies(): Flow<List<MovieEntity>> =
-        movieDao.getFavoriteMovies()
+    suspend fun deleteMovies() = movieDao.deleteMovies()
+
+    fun getFavoriteMovies(filter: SortType): Flow<List<MovieEntity>> {
+        val query = SortUtils.getSorteredMoviesQuery(filter)
+        return movieDao.getFavoriteMovies(query)
+    }
 
     fun setFavoriteMovie(movie: MovieEntity, newState: Boolean) {
         movie.isFavorite = newState
@@ -38,8 +44,12 @@ class LocalDataSource @Inject constructor(
     suspend fun insertTvShows(tvShows: List<TvShowEntity>) =
         movieDao.insertTvShows(tvShows)
 
-    fun getFavoriteTvShows(): Flow<List<TvShowEntity>> =
-        movieDao.getFavoriteTvShows()
+    suspend fun deleteTvShows() = movieDao.deleteTvShows()
+
+    fun getFavoriteTvShows(filter: SortType): Flow<List<TvShowEntity>> {
+        val query = SortUtils.getSorteredTvShowsQuery(filter)
+        return movieDao.getFavoriteTvShows(query)
+    }
 
     fun setFavoriteTvShow(tvShow: TvShowEntity, state: Boolean) {
         tvShow.isFavorite = state

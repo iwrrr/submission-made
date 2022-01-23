@@ -71,28 +71,6 @@ object DataMapper {
             isFavorite = input.isFavorite
         )
 
-    fun mapTvShowResponsesToDomain(input: List<TvShowResponse>): List<TvShow> {
-        val tvShowList = ArrayList<TvShow>()
-        input.map {
-            val tvShow = TvShow(
-                id = it.id,
-                name = it.name,
-                originalName = it.originalName,
-                originalLanguage = it.originalLanguage,
-                posterPath = it.posterPath,
-                backdropPath = it.backdropPath,
-                firstAirDate = it.firstAirDate,
-                overview = it.overview,
-                popularity = it.popularity,
-                voteAverage = it.voteAverage,
-                voteCount = it.voteCount,
-                isFavorite = false
-            )
-            tvShowList.add(tvShow)
-        }
-        return tvShowList
-    }
-
     fun mapTvShowResponsesToEntities(input: List<TvShowResponse>): List<TvShowEntity> {
         val tvShowList = ArrayList<TvShowEntity>()
         input.map {

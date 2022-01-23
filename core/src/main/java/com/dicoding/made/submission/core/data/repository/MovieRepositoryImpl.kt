@@ -10,6 +10,7 @@ import com.dicoding.made.submission.core.domain.model.Movie
 import com.dicoding.made.submission.core.domain.repository.MovieRepository
 import com.dicoding.made.submission.core.utils.AppExecutors
 import com.dicoding.made.submission.core.utils.DataMapper
+import com.dicoding.made.submission.core.utils.SortType
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -56,12 +57,13 @@ class MovieRepositoryImpl @Inject constructor(
 
             override suspend fun saveCallResult(data: List<MovieResponse>) {
                 val movieList = DataMapper.mapMovieResponsesToEntities(data)
+                localDataSource.deleteMovies()
                 localDataSource.insertMovies(movieList)
             }
         }.asFlow()
 
-    override fun getFavoriteMovies(): Flow<Resource<List<Movie>>> =
-        localDataSource.getFavoriteMovies()
+    override fun getFavoriteMovies(filter: SortType): Flow<Resource<List<Movie>>> =
+        localDataSource.getFavoriteMovies(filter)
             .map { Resource.Success(DataMapper.mapMovieEntitiesToDomain(it)) }
 
     override fun setFavoriteMovie(movie: Movie, state: Boolean) {

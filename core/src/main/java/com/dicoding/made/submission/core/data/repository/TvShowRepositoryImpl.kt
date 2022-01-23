@@ -10,6 +10,7 @@ import com.dicoding.made.submission.core.domain.model.TvShow
 import com.dicoding.made.submission.core.domain.repository.TvShowRepository
 import com.dicoding.made.submission.core.utils.AppExecutors
 import com.dicoding.made.submission.core.utils.DataMapper
+import com.dicoding.made.submission.core.utils.SortType
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -55,16 +56,14 @@ class TvShowRepositoryImpl @Inject constructor(
                 remoteDataSource.getTvShows()
 
             override suspend fun saveCallResult(data: List<TvShowResponse>) {
-                val tvShowList =
-                    DataMapper.mapTvShowResponsesToEntities(
-                        data
-                    )
+                val tvShowList = DataMapper.mapTvShowResponsesToEntities(data)
+                localDataSource.deleteTvShows()
                 localDataSource.insertTvShows(tvShowList)
             }
         }.asFlow()
 
-    override fun getFavoriteTvShows(): Flow<Resource<List<TvShow>>> =
-        localDataSource.getFavoriteTvShows()
+    override fun getFavoriteTvShows(filter: SortType): Flow<Resource<List<TvShow>>> =
+        localDataSource.getFavoriteTvShows(filter)
             .map { Resource.Success(DataMapper.mapTvShowEntitiesToDomain(it)) }
 
     override fun setFavoriteTvShow(tvShow: TvShow, state: Boolean) {

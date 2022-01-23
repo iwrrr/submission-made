@@ -4,7 +4,7 @@ import androidx.constraintlayout.utils.widget.ImageFilterView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dicoding.made.submission.commons.R
-import com.dicoding.made.submission.commons.ui.utils.Constants.IMG_URL
+import com.dicoding.made.submission.commons.utils.Constants.IMG_URL
 import com.google.android.material.imageview.ShapeableImageView
 
 

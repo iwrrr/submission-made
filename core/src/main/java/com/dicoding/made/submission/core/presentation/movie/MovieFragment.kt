@@ -31,13 +31,13 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
 
     private val viewModel: MovieViewModel by viewModels()
 
-    private val movieAdapter: MovieCatalogueAdapter<Movie> by lazy {
-        MovieCatalogueAdapter(::onMovieClicked, requireContext())
-    }
+    private var movieAdapter: MovieCatalogueAdapter<Movie>? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentMovieBinding.bind(view)
+
+        movieAdapter = MovieCatalogueAdapter(::onMovieClicked, requireContext())
 
         setupSearchFlow()
 
@@ -47,6 +47,7 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        movieAdapter = null
     }
 
     private fun setMovies() {
@@ -63,7 +64,7 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
                     }
                     is Resource.Success -> {
                         binding?.progressBar?.isVisible = false
-                        movieAdapter.submitList(resource.data)
+                        movieAdapter?.submitList(resource.data)
                     }
                     is Resource.Error -> {
                         binding?.progressBar?.isVisible = false
@@ -109,7 +110,7 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
                         }
                         is Resource.Success -> {
                             binding?.progressBar?.isVisible = false
-                            movieAdapter.submitList(movies as List<CommonType>)
+                            movieAdapter?.submitList(movies as List<CommonType>)
                         }
                         is Resource.Error -> {
                             binding?.progressBar?.isVisible = false

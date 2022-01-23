@@ -43,14 +43,6 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="Typography.White.18" parent="Typography.White">
-        <item name="android:textSize">18sp</item>
-    </style>
-
-    <style name="Typography.White.18.Bold" parent="Typography.White.18">
-        <item name="android:textStyle">bold</item>
-    </style>
-
     <style name="Search">
         <item name="android:textSize">14sp</item>
         <item name="android:textColorHint">@color/colorText</item>

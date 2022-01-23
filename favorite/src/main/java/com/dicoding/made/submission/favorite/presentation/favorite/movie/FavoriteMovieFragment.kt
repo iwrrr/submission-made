@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.PopupMenu
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -12,6 +13,7 @@ import com.dicoding.made.submission.commons.other.Resource
 import com.dicoding.made.submission.core.domain.model.Movie
 import com.dicoding.made.submission.core.presentation.MovieCatalogueAdapter
 import com.dicoding.made.submission.core.presentation.detail.movie.DetailMovieActivity
+import com.dicoding.made.submission.core.utils.SortType
 import com.dicoding.made.submission.di.FavoriteModuleDependencies
 import com.dicoding.made.submission.favorite.R
 import com.dicoding.made.submission.favorite.databinding.FragmentFavoriteMovieBinding
@@ -53,6 +55,7 @@ class FavoriteMovieFragment : Fragment(R.layout.fragment_favorite_movie) {
         _binding = FragmentFavoriteMovieBinding.bind(view)
 
         setFavoriteMovies()
+        sortMenu()
     }
 
     override fun onDestroyView() {
@@ -74,6 +77,7 @@ class FavoriteMovieFragment : Fragment(R.layout.fragment_favorite_movie) {
                     }
                     is Resource.Success -> {
                         binding?.progressBar?.isVisible = false
+                        binding?.viewEmpty?.root?.isVisible = resource.data.isNullOrEmpty()
                         movieAdapter.submitList(resource.data)
                     }
                     is Resource.Error -> {
@@ -88,6 +92,26 @@ class FavoriteMovieFragment : Fragment(R.layout.fragment_favorite_movie) {
         Intent(requireContext(), DetailMovieActivity::class.java).also { intent ->
             intent.putExtra(DetailMovieActivity.EXTRA_MOVIE, movie)
             startActivity(intent)
+        }
+    }
+
+    private fun sortMenu() {
+        val btnSort = binding?.btnSort
+        btnSort?.setOnClickListener {
+            PopupMenu(requireContext(), btnSort).run {
+                menuInflater.inflate(R.menu.filter_menu, menu)
+                setOnMenuItemClickListener {
+                    viewModel.filter(
+                        when (it.itemId) {
+                            R.id.name_asc -> SortType.NAME_ASC
+                            R.id.name_desc -> SortType.NAME_DESC
+                            else -> SortType.RANDOM
+                        }
+                    )
+                    true
+                }
+                show()
+            }
         }
     }
 }

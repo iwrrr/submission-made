@@ -12,11 +12,12 @@ import com.dicoding.made.submission.core.R
 import com.dicoding.made.submission.core.databinding.ItemMoviesBinding
 import com.dicoding.made.submission.core.domain.model.Movie
 import com.dicoding.made.submission.core.domain.model.TvShow
+import dagger.hilt.android.qualifiers.ApplicationContext
 
 @Suppress("UNCHECKED_CAST")
 class MovieCatalogueAdapter<T>(
     private val onClick: (T) -> Unit,
-    private val context: Context
+    @ApplicationContext private val context: Context,
 ) : BaseGenericAdapter<CommonType>() {
 
     private val movieType = 0

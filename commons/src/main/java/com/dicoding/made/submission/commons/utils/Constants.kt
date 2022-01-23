@@ -1,4 +1,4 @@
-package com.dicoding.made.submission.commons.ui.utils
+package com.dicoding.made.submission.commons.utils
 
 object Constants {
 

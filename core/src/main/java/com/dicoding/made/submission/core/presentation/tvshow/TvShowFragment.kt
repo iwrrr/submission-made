@@ -31,13 +31,13 @@ class TvShowFragment : Fragment(R.layout.fragment_tv_show) {
 
     private val viewModel: TvShowViewModel by viewModels()
 
-    private val tvShowAdapter: MovieCatalogueAdapter<TvShow> by lazy {
-        MovieCatalogueAdapter(::onTvShowClicked, requireContext())
-    }
+    private var tvShowAdapter: MovieCatalogueAdapter<TvShow>? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentTvShowBinding.bind(view)
+
+        tvShowAdapter = MovieCatalogueAdapter(::onTvShowClicked, requireContext())
 
         setupSearchFlow()
 
@@ -47,6 +47,7 @@ class TvShowFragment : Fragment(R.layout.fragment_tv_show) {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        tvShowAdapter = null
     }
 
     private fun setTvShows() {
@@ -63,7 +64,7 @@ class TvShowFragment : Fragment(R.layout.fragment_tv_show) {
                     }
                     is Resource.Success -> {
                         binding?.progressBar?.isVisible = false
-                        tvShowAdapter.submitList(resource.data)
+                        tvShowAdapter?.submitList(resource.data)
                     }
                     is Resource.Error -> {
                         binding?.progressBar?.isVisible = false
@@ -109,7 +110,7 @@ class TvShowFragment : Fragment(R.layout.fragment_tv_show) {
                         }
                         is Resource.Success -> {
                             binding?.progressBar?.isVisible = false
-                            tvShowAdapter.submitList(tvShows as List<CommonType>)
+                            tvShowAdapter?.submitList(tvShows as List<CommonType>)
                         }
                         is Resource.Error -> {
                             binding?.progressBar?.isVisible = false
