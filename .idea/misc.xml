@@ -1,5 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/app/src/main/res/drawable/bg_rounded.xml" value="0.11944444444444445" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/app/src/main/res/drawable/ic_favorite.xml" value="0.11944444444444445" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/app/src/main/res/drawable/ic_favorite_border.xml" value="0.11944444444444445" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/app/src/main/res/drawable/ic_filter.xml" value="0.11944444444444445" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/app/src/main/res/layout/fragment_movie.xml" value="0.25" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/app/src/main/res/menu/filter_menu.xml" value="0.1" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/app/src/main/res/menu/nav_menu.xml" value="0.5" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.11388888888888889" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/core/src/main/res/layout/activity_detail.xml" value="0.36770833333333336" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/core/src/main/res/layout/fragment_movie.xml" value="0.33" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/core/src/main/res/layout/fragment_tv_show.xml" value="0.22685185185185186" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/core/src/main/res/layout/item_movies.xml" value="0.41040462427745666" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/core/src/main/res/layout/tv_show_fragment.xml" value="0.1" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/core/src/main/res/layout/view_empty.xml" value="0.18" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/core/src/main/res/menu/filter_menu.xml" value="0.25" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/favorite/src/main/res/layout/fragment_favorite.xml" value="0.18" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/favorite/src/main/res/layout/fragment_favorite_movie.xml" value="0.33" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/favorite/src/main/res/layout/fragment_favorite_tv_show.xml" value="0.33" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/favorite/src/main/res/layout/view_empty.xml" value="0.1" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/favorite/src/main/res/menu/filter_menu.xml" value="0.1" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resource/src/main/res/drawable/filter.xml" value="0.12962962962962962" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resource/src/main/res/drawable/ic_filter.xml" value="0.11388888888888889" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resource/src/main/res/drawable/ic_search.xml" value="0.10833333333333334" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resource/src/main/res/drawable/ic_tv.xml" value="0.11388888888888889" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resource/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resource/src/main/res/layout/fragment_movie.xml" value="0.1" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resource/src/main/res/menu/nav_menu.xml" value="0.1" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resource/src/main/res/mipmap/ic_launcher_round.xml" value="0.11388888888888889" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resources/src/main/res/drawable/bg_circle.xml" value="0.35572916666666665" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resources/src/main/res/drawable/bg_rounded.xml" value="0.23981481481481481" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resources/src/main/res/drawable/bottom_navigation_selector.xml" value="0.1361111111111111" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resources/src/main/res/drawable/filter.xml" value="0.35572916666666665" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resources/src/main/res/drawable/ic_broken_image.xml" value="0.14074074074074075" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resources/src/main/res/drawable/ic_error.xml" value="0.14074074074074075" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resources/src/main/res/drawable/ic_favorite.xml" value="0.23981481481481481" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resources/src/main/res/drawable/ic_favorite_border.xml" value="0.23981481481481481" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resources/src/main/res/drawable/ic_favorite_unchecked.xml" value="0.35572916666666665" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resources/src/main/res/drawable/ic_loading.xml" value="0.14074074074074075" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resources/src/main/res/drawable/ic_refresh.xml" value="0.14074074074074075" />
+        <entry key="..\:/Dev/Studi Independen/Android/Menjadi Android Developer Expert/Submission/resources/src/main/res/drawable/toggle_favorite.xml" value="0.35572916666666665" />
+      </map>
+    </option>
+  </component>
+  <component name="EntryPointsManager">
+    <list size="12">
+      <item index="0" class="java.lang.String" itemvalue="dagger.Binds" />
+      <item index="1" class="java.lang.String" itemvalue="dagger.Binds" />
+      <item index="2" class="java.lang.String" itemvalue="dagger.Binds" />
+      <item index="3" class="java.lang.String" itemvalue="dagger.Binds" />
+      <item index="4" class="java.lang.String" itemvalue="dagger.Module" />
+      <item index="5" class="java.lang.String" itemvalue="dagger.Module" />
+      <item index="6" class="java.lang.String" itemvalue="dagger.Module" />
+      <item index="7" class="java.lang.String" itemvalue="dagger.Module" />
+      <item index="8" class="java.lang.String" itemvalue="dagger.Provides" />
+      <item index="9" class="java.lang.String" itemvalue="dagger.Provides" />
+      <item index="10" class="java.lang.String" itemvalue="dagger.Provides" />
+      <item index="11" class="java.lang.String" itemvalue="dagger.Provides" />
+    </list>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

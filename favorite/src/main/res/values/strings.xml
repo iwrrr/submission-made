@@ -1,0 +1,4 @@
+<resources>
+    <string name="tab_movies">Movie</string>
+    <string name="tab_tv_shows">Tv Show</string>
+</resources>

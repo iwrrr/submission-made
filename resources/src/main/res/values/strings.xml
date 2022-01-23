@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="title_favorite">Favorite</string>
+    <string name="title_nav_movie">Movie</string>
+    <string name="title_nav_tv_show">Tv Show</string>
+    <string name="title_nav_favorite">Favorite</string>
+
+    <string name="query_hint" tools:ignore="TypographyEllipsis">Search something here...</string>
+
+    <string name="_dash">-</string>
+    <string name="_null" />
+    <string name="no_data">Empty data</string>
+
+    <string name="overview">Overview</string>
+    <string name="popularity">Popularity\t\t: %1$s</string>
+    <string name="vote_count">Vote Count\t: %1$s</string>
+
+    <string name="btn_back">Back</string>
+    <string name="sort">Sort By</string>
+    <string name="sort_asc">Name (A-Z)</string>
+    <string name="sort_desc">Name (Z-A)</string>
+    <string name="sort_random">Random</string>
+</resources>
